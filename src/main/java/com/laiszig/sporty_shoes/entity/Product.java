@@ -9,7 +9,7 @@ public class Product {
 
     @Id
     @Column(name = "product_id")
-    private int id;
+    private Integer id;
 
     @Column(name = "product_name")
     private String name;
