@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>texto qualquer</title>
+</head>
+<body>
+<h1>Category
+</h1>
+<br/>
+<a href="http://localhost:8080/admin/category">Back</a>
+
+<form th:action="@{/admin/category/create}" th:object="${category}" method="post" enctype="multipart/form-data">
+    <label for="name">Name</label>
+    <input type="hidden" th:field="*{id}" >
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <input type="submit" value="Add">
+</form>
+</body>
+</html>

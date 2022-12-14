@@ -9,6 +9,7 @@ public class Product {
 
     @Id
     @Column(name = "product_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "product_name")
@@ -21,11 +22,11 @@ public class Product {
     @JoinColumn(name = "category_id", nullable = true)
     private Category category;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
