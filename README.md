@@ -1,1 +1,0 @@
-# sporty_shoes
