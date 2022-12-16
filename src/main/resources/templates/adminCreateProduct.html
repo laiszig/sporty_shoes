@@ -11,9 +11,17 @@
 <a href="http://localhost:8080/admin/product">Back</a>
 
 <form th:action="@{/admin/product/create}" th:object="${product}" method="post" enctype="multipart/form-data">
-    <label for="name">Name</label>
     <input type="hidden" th:field="*{id}" >
+    <label for="name">Name</label>
     <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <label for="price">Price</label>
+    <input type="text" th:field="*{price}" id="price" placeholder="Price">
+    <label for="categoryId">Category</label>
+<!--    <input type="text" th:field="*{category}" id="category" placeholder="Category">-->
+    <select class="form-control" id="categoryId" th:field="*{categoryId}">
+        <option value="0">select option</option>
+        <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+    </select>
     <input type="submit" value="Add">
 </form>
 </body>

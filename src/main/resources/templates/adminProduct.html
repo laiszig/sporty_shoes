@@ -16,12 +16,16 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
     </tr>
     </thead>
     <tbody>
         <tr th:each= "products : ${products}" style="border: 1px solid black;">
             <td width="50" style="border: 1px solid black; text-align: center" th:text="${products.id}" />
             <td width="200" style="border: 1px solid black; text-align: center" th:text="${products.name}" />
+            <td width="50" style="border: 1px solid black; text-align: center" th:text="${products.price}" />
+            <td width="200" style="border: 1px solid black; text-align: center" th:text="${products.category?.name}" />
         </tr>
     </tbody>
 </table>
