@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+</head>
+<body>
+<h1>Product
+</h1>
+<br/>
+<a href="http://localhost:8080/admin/product/create">Add New Product</a>
+<a href="http://localhost:8080/">Back</a>
+<table style="border: 1px solid black;">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each= "products : ${products}" style="border: 1px solid black;">
+            <td width="50" style="border: 1px solid black; text-align: center" th:text="${products.id}" />
+            <td width="200" style="border: 1px solid black; text-align: center" th:text="${products.name}" />
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
