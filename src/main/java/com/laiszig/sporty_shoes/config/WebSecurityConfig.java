@@ -30,9 +30,9 @@ public class WebSecurityConfig {
 
         http
                 .authorizeRequests((requests) -> requests
-                         .antMatchers("/admin/**").hasAuthority("ADMIN")
+                        .antMatchers("/admin/**").hasAuthority("ADMIN")
 
-                        .antMatchers("/", "/home").permitAll()
+                        .antMatchers("/**", "/home").permitAll()
 
                         .anyRequest().authenticated()
                 )
