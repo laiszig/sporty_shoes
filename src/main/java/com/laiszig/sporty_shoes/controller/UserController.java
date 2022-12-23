@@ -1,6 +1,7 @@
 package com.laiszig.sporty_shoes.controller;
 
 import com.laiszig.sporty_shoes.entity.User;
+import com.laiszig.sporty_shoes.formData.CredentialFormData;
 import com.laiszig.sporty_shoes.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,18 @@ public class UserController {
     public String addUser(User user, RedirectAttributes redirectAttributes) {
         userService.saveUser(user);
         redirectAttributes.addFlashAttribute("message", "added");
+        return "redirect:/login";
+    }
+
+    @GetMapping("/user/changepassword")
+    public String changePassword(Model model) {
+        model.addAttribute("credential", new CredentialFormData());
+        return "changePassword";
+    }
+
+    @PostMapping("/user/changepassword")
+    public String changePassword(CredentialFormData credentialFormData, RedirectAttributes redirectAttributes) {
+        userService.updatePassword(credentialFormData);
         return "redirect:/login";
     }
 }

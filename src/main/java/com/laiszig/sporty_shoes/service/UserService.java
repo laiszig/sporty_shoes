@@ -2,6 +2,7 @@ package com.laiszig.sporty_shoes.service;
 
 import com.laiszig.sporty_shoes.entity.SecurityUser;
 import com.laiszig.sporty_shoes.entity.User;
+import com.laiszig.sporty_shoes.formData.CredentialFormData;
 import com.laiszig.sporty_shoes.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -52,5 +53,11 @@ public class UserService {
      );
         userDetailsManager.createUser(securityUser);
         return user;
+    }
+
+    public void updatePassword(CredentialFormData credentialFormData) {
+        String encoded = passwordEncoder.encode(credentialFormData.getNewPassword());
+        userDetailsManager.changePassword(credentialFormData.getOldPassword(), encoded);
+
     }
 }
