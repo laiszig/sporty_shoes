@@ -3,6 +3,7 @@ package com.laiszig.sporty_shoes.controller;
 import com.laiszig.sporty_shoes.entity.Category;
 import com.laiszig.sporty_shoes.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ public class CategoryController{
     private CategoryService categoryService;
 
     @GetMapping("/admin/category")
+    @PreAuthorize("hasRole('ADMIN')")
     public String listAll(Model model) {
         model.addAttribute("categories", categoryService.getAll());
         return "adminCategory";
