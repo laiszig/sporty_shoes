@@ -2,17 +2,8 @@ package com.laiszig.sporty_shoes.formData;
 
 public class CredentialFormData {
 
-    private String username;
     private String newPassword;
     private String oldPassword;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public String getNewPassword() {
         return newPassword;
