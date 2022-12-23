@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Store</title>
+</head>
+<body>
+<table style="border: 1px solid black;">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Category</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each= "products : ${products}" style="border: 1px solid black;">
+    <td width="50" style="border: 1px solid black; text-align: center" th:text="${products.id}" />
+    <td width="200" style="border: 1px solid black; text-align: center" th:text="${products.name}" />
+    <td width="50" style="border: 1px solid black; text-align: center" th:text="${products.price}" />
+    <td width="200" style="border: 1px solid black; text-align: center" th:text="${products.category?.name}" />
+    <td><a th:href="@{/store/products/{id} (id=${products.id})}" th:text="${products.id}">View Details</a></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

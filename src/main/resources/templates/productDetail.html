@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+   <span th:text="${product.name}"></span> <br>
+   <span th:text="${product.price}"></span> <br>
+   <span th:text="${product.category?.name}"></span> <br>
+</p>
+<form th:action="@{/store/products/{id} (id=${product.id})}" th:object="${purchase}" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:value="${product.id}" name="id">
+    <label for="quantity">Quantity</label>
+    <input type="text" th:field="*{quantity}" id="quantity" placeholder="1">
+    <input type="submit" value="Purchase">
+</form>
+</body>
+</html>
