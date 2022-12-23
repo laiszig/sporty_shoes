@@ -30,15 +30,25 @@ public class WebSecurityConfig {
 
         http
                 .authorizeRequests((requests) -> requests
-                         .antMatchers("/admin/product").hasAuthority("ADMIN")
+                         .antMatchers("/admin/**").hasAuthority("ADMIN")
 
                         .antMatchers("/", "/home").permitAll()
 
                         .anyRequest().authenticated()
                 )
-                .formLogin((form) -> form
-                        .loginPage("/login")
-                        .permitAll()
+                .formLogin((form) -> {
+                            try {
+                                form
+                                        .loginPage("/login")
+                                        .permitAll()
+                                        .and()
+                                        .logout()
+                                        .logoutUrl("/logout").
+                                        logoutSuccessUrl("/");
+                            } catch (Exception e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
                 )
                 .logout((logout) -> logout.permitAll());
 
