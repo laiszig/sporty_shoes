@@ -1,8 +1,6 @@
 package com.laiszig.sporty_shoes.service;
 
-import com.laiszig.sporty_shoes.entity.Category;
 import com.laiszig.sporty_shoes.entity.Product;
-import com.laiszig.sporty_shoes.repository.CategoryRepository;
 import com.laiszig.sporty_shoes.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
