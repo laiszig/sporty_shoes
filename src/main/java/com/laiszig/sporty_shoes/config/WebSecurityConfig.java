@@ -36,6 +36,7 @@ public class WebSecurityConfig {
                 .authorizeRequests((requests) -> requests
                         .antMatchers("/admin/**").hasAuthority("ADMIN")
                         .antMatchers("/user/changepassword").hasAnyAuthority("ADMIN", "USER")
+                        .antMatchers("/store/products/**").hasAuthority("USER")
 
                         .antMatchers("/**", "/home").permitAll()
 

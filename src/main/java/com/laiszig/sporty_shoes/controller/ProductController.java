@@ -84,6 +84,6 @@ public class ProductController {
         purchase.setUsername(currentUser.getName());
         purchase.setTotalPrice(purchase.getUnitPrice().multiply(BigDecimal.valueOf(purchase.getQuantity())));
         purchaseService.save(purchase);
-        return "productDetail";
+        return "redirect:/store/products";
     }
 }
