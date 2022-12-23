@@ -14,7 +14,12 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true, proxyTargetClass = true)
+@EnableGlobalMethodSecurity(
+        securedEnabled = true,
+        //proxyTargetClass = true
+        prePostEnabled = true
+
+)
 public class WebSecurityConfig {
 
     @Autowired
@@ -22,10 +27,13 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
         http
                 .authorizeRequests((requests) -> requests
+                         .antMatchers("/admin/product").hasAuthority("ADMIN")
+
                         .antMatchers("/", "/home").permitAll()
-                        .antMatchers("/admin/**").hasRole("ADMIN")
+
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
