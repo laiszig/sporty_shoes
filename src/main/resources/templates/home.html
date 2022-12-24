@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
   <title>Spring Security Example</title>
 </head>
@@ -9,6 +9,8 @@
 <ul>
   <li><a th:href="@{/admin/product}">Products</a></li>
   <li><a th:href="@{/admin/category}">Categories</a></li>
+  <li><a th:href="@{/store/products}">Store</a> </li>
+  <li><a th:href="@{/admin/report}">Report</a> </li>
 </ul>
 
 <form th:action="@{/logout}" method="POST">

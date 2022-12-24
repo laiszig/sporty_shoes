@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -83,6 +84,8 @@ public class ProductController {
         purchase.setUnitPrice(product.get().getPrice());
         purchase.setUsername(currentUser.getName());
         purchase.setTotalPrice(purchase.getUnitPrice().multiply(BigDecimal.valueOf(purchase.getQuantity())));
+        purchase.setDate(LocalDate.now());
+        purchase.setCategory(product.get().getCategory());
         purchaseService.save(purchase);
         return "redirect:/store/products";
     }

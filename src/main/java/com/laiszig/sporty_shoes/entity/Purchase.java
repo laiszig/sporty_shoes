@@ -2,6 +2,7 @@ package com.laiszig.sporty_shoes.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "purchases")
@@ -26,6 +27,13 @@ public class Purchase {
 
     @Column(name = "username")
     private String username;
+
+    @Column(name="date")
+    private LocalDate date;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = true)
+    private Category category;
 
     public Integer getPurchaseId() {
         return purchaseId;
@@ -73,5 +81,21 @@ public class Purchase {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

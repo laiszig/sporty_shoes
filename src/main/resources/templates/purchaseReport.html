@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase Report</title>
+</head>
+<body>
+<a href="http://localhost:8080/">Back</a>
+<form th:action="@{/admin/report}" th:object="${searchPurchase}" method="post" enctype="multipart/form-data">
+    <label for="date">Date</label>
+    <input type="date" th:field="*{date}" id="date" placeholder="Date">
+    <label for="categoryId">Category</label>
+    <select class="form-control" id="categoryId" th:field="*{categoryId}">
+        <option value="0">select option</option>
+        <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+    </select>
+    <input type="submit" value="Search">
+</form>
+
+<table style="border: 1px solid black;">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Total Price</th>
+        <th>Date</th>
+        <th>Category</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each= "purchase : ${purchases}" style="border: 1px solid black;">
+        <td width="50" style="border: 1px solid black; text-align: center" th:text="${purchase.purchaseId}" />
+        <td width="200" style="border: 1px solid black; text-align: center" th:text="${purchase.username}" />
+        <td width="200" style="border: 1px solid black; text-align: center" th:text="${purchase.productId}" />
+        <td width="200" style="border: 1px solid black; text-align: center" th:text="${purchase.quantity}" />
+        <td width="200" style="border: 1px solid black; text-align: center" th:text="${purchase.unitPrice}" />
+        <td width="200" style="border: 1px solid black; text-align: center" th:text="${purchase.totalPrice}" />
+        <td width="200" style="border: 1px solid black; text-align: center" th:text="${purchase.date}" />
+        <td width="200" style="border: 1px solid black; text-align: center" th:text="${purchase.category.name}" />
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

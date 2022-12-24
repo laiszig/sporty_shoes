@@ -3,6 +3,7 @@ package com.laiszig.sporty_shoes.formData;
 public class PurchaseFormData {
 
     private Integer id;
+
     private Integer quantity;
 
     public Integer getId() {
