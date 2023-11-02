@@ -2,7 +2,7 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/laiszig/sporty_shoes?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/laiszig/sporty_shoes?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/laiszig/sporty_shoe?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/laiszig/sporty_shoes?style=for-the-badge)
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/laiszig/sporty_shoes?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/laiszig/sporty_shoes?style=for-the-badge)
 
